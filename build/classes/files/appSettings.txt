@@ -1,0 +1,1 @@
+{"independent":false,"latitude":"51.07132","automate":false,"azimuth":181,"tilt":45,"longitude":"-1.04239"}
