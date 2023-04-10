@@ -18,7 +18,8 @@ public class Files {
             clear.print("");
             clear.close();
         } catch (FileNotFoundException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
         }
     }
 
@@ -28,7 +29,8 @@ public class Files {
             writer.write(data);
             writer.close();
         } catch (IOException e) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
         }
     }
 
@@ -37,7 +39,8 @@ public class Files {
             String lineContent = java.nio.file.Files.readAllLines(Paths.get("src/files/appSettings.txt")).get(0);
             return lineContent;
         } catch (IOException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
         }
         return null;
     }
@@ -49,7 +52,8 @@ public class Files {
             String jarDir = jarFile.getParent();
             return jarDir;
         } catch (URISyntaxException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
             return null;
         }
     }

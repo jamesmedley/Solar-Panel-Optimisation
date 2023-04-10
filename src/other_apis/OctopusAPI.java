@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Base64;
+import solarproject.Error;
 
 public class OctopusAPI {
 
@@ -33,7 +34,8 @@ public class OctopusAPI {
             connection.disconnect();
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem reading data from Octopus API");
+            Error err = new Error();
+            err.sendError("There was a problem reading data from Octopus API");
             return null;
         }
     }
@@ -45,7 +47,8 @@ public class OctopusAPI {
             connection.setReadTimeout(10000);
             return connection;
         } catch (ProtocolException ex) {
-            new Error("There was a problem reading data from Octopus API");
+            Error err = new Error();
+            err.sendError("There was a problem reading data from Octopus API");
             return null;
         }
     }
@@ -59,7 +62,8 @@ public class OctopusAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem reading data from Octopus API");
+            Error err = new Error();
+            err.sendError("There was a problem reading data from Octopus API");
             return null;
         }
     }
@@ -75,7 +79,8 @@ public class OctopusAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem reading data from Octopus API");
+            Error err = new Error();
+            err.sendError("There was a problem reading data from Octopus API");
         }
         return null;
     }

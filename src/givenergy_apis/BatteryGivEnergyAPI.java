@@ -2,6 +2,7 @@ package givenergy_apis;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import solarproject.Error;
 
 public class BatteryGivEnergyAPI extends GivEnergyAPI {
 
@@ -20,7 +21,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             JSONObject response = new JSONObject(data);
             return response;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return null;
         }
     }
@@ -30,7 +32,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int mode = BATTERYDATAJO.getInt("mode");
             return mode;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -40,7 +43,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int selfConsumptionMode = BATTERYDATAJO.getInt("selfConsumptionMode");
             return selfConsumptionMode;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -50,7 +54,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int shallowCharge = BATTERYDATAJO.getInt("shallowCharge");
             return shallowCharge;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -60,7 +65,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int dischargeStart = BATTERYDATAJO.getInt("dischargeScheduleStart");
             return dischargeStart;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -70,7 +76,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int dischargeEnd = BATTERYDATAJO.getInt("dischargeScheduleEnd");
             return dischargeEnd;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -80,7 +87,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int chargeStart = BATTERYDATAJO.getInt("chargeScheduleStart");
             return chargeStart;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -90,7 +98,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int chargeEnd = BATTERYDATAJO.getInt("chargeScheduleEnd");
             return chargeEnd;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -100,7 +109,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int dischargeTo = BATTERYDATAJO.getInt("dischargeDownTo");
             return dischargeTo;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -110,7 +120,8 @@ public class BatteryGivEnergyAPI extends GivEnergyAPI {
             int chargeTo = BATTERYDATAJO.getInt("chargeUpTo");
             return chargeTo;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }

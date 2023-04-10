@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import solarproject.DateStrings;
 import solarproject.Files;
+import solarproject.Error;
 
 public final class PVModel {
 
@@ -46,7 +47,8 @@ public final class PVModel {
             PANELPROPERITES.setLongitude(jo.getDouble("longitude"));
             PANELPROPERITES.setLatitude(jo.getDouble("latitude"));
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
         }
     }
 

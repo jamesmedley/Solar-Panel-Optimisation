@@ -3,6 +3,7 @@ package databases;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import solarproject.Error;
 
 public class DBpvModel extends DBConnection {
 
@@ -56,7 +57,8 @@ public class DBpvModel extends DBConnection {
                 i++;
             }
         } catch (SQLException ex) {
-            new Error("Database Error");
+            Error err = new Error();
+            err.sendError("Database Error");
         }
     }
 
@@ -69,7 +71,8 @@ public class DBpvModel extends DBConnection {
             int count = results.getInt(1);
             return count;
         } catch (SQLException ex) {
-            new Error("Database Error");
+            Error err = new Error();
+            err.sendError("Database Error");
             return -1;
         }
     }
@@ -94,7 +97,8 @@ public class DBpvModel extends DBConnection {
             model[5] = rs.getDouble("Order0");
             return model;
         } catch (SQLException ex) {
-            new Error("Database Error");
+            Error err = new Error();
+            err.sendError("Database Error");
             return null;
         }
     }
@@ -112,7 +116,8 @@ public class DBpvModel extends DBConnection {
             charging[3] = results.getString("DischargePeriod2");
             return charging;
         } catch (SQLException ex) {
-            new Error("Database Error");
+            Error err = new Error();
+            err.sendError("Database Error");
             return null;
         }
     }

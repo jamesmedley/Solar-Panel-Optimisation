@@ -3,6 +3,7 @@ package other_apis;
 import optimisation.Prices;
 import org.json.JSONException;
 import org.json.JSONObject;
+import solarproject.Error;
 
 public class AgilePricesOctopusAPI extends OctopusAPI {
 
@@ -11,7 +12,8 @@ public class AgilePricesOctopusAPI extends OctopusAPI {
             JSONObject response = new JSONObject(data);
             return response;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting Agile Prices");
+            Error err = new Error();
+            err.sendError("There was a problem collecting Agile Prices");
             return null;
         }
     }
@@ -30,7 +32,8 @@ public class AgilePricesOctopusAPI extends OctopusAPI {
             p.findPrices(true, 5);
             return prices;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }

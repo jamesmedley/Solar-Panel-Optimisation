@@ -11,6 +11,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import solarproject.Error;
 
 public class GivEnergyAPI {
 
@@ -43,7 +44,8 @@ public class GivEnergyAPI {
             connection.disconnect();
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -58,7 +60,8 @@ public class GivEnergyAPI {
             connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
         }
     }
 
@@ -84,7 +87,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -98,7 +102,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -112,7 +117,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -126,7 +132,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -140,7 +147,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -157,7 +165,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -172,7 +181,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -187,7 +197,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -202,7 +213,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -217,7 +229,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -232,7 +245,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -247,7 +261,8 @@ public class GivEnergyAPI {
             String response = returnDataString(connection);
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -267,10 +282,12 @@ public class GivEnergyAPI {
             os.close();
             return connection;
         } catch (UnsupportedEncodingException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         } catch (IOException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }
@@ -283,7 +300,8 @@ public class GivEnergyAPI {
             connection.setReadTimeout(10000);
             return connection;
         } catch (ProtocolException ex) {
-            new Error("There was a problem with the connection to GivEnergy.");
+            Error err = new Error();
+            err.sendError("There was a problem with the connection to GivEnergy.");
             return null;
         }
     }

@@ -3,6 +3,7 @@ package givenergy_apis;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
+import solarproject.Error;
 
 public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
 
@@ -25,7 +26,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             JSONObject response = new JSONObject(data);
             return response;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return null;
         }
     }
@@ -35,7 +37,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             int soc = PLANTSUMMARYJO.getInt("soc");
             return soc;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -45,7 +48,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             String batPower = PLANTSUMMARYJO.getString("batPower");
             return batPower;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return null;
         }
     }
@@ -55,7 +59,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             String gridpower = PLANTSUMMARYJO.getString("gridPower");
             return gridpower;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return null;
         }
     }
@@ -65,7 +70,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             String pvpower = PLANTSUMMARYJO.getString("pvPower");
             return pvpower;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return null;
         }
     }
@@ -75,7 +81,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             int load = PLANTSUMMARYJO.getInt("loadPower");
             return load;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }
@@ -85,7 +92,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             String co2 = PLANTSUMMARYJO.getString("todayCo2Saved");
             return co2;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return null;
         }
     }
@@ -95,7 +103,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             String co2 = PLANTSUMMARYJO.getString("monthCo2Saved");
             return co2;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return null;
         }
     }
@@ -105,7 +114,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             String co2 = PLANTSUMMARYJO.getString("totalCo2Saved");
             return co2;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return null;
         }
     }
@@ -115,7 +125,8 @@ public class CurrentStateGivEnergyAPI extends GivEnergyAPI {
             int powerInv = PLANTSUMMARYJO.getInt("pInv");
             return powerInv;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data");
+            Error err = new Error();
+            err.sendError("There was a problem reading data");
             return -1;
         }
     }

@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import model.PVModel;
 import model.PanelProperties;
+import solarproject.Error;
 
 public class ForecastAPI {
 
@@ -36,13 +37,15 @@ public class ForecastAPI {
                 try {
                     url = new URL("https://api.solcast.com.au/world_radiation/forecasts?latitude=" + latitude + "&longitude=" + longitude + "&format=json&%E2%80%8B&api_key=<api key>");
                 } catch (MalformedURLException ex) {
-                    new Error("There was a problem collecting forecasts");
+                    Error err = new Error();
+                    err.sendError("There was a problem collecting forecasts");
                 }
             } else { // if estimated actuals are wanted use this endpoint
                 try {
                     url = new URL("https://api.solcast.com.au/world_radiation/estimated_actuals?latitude=" + latitude + "&longitude=" + longitude + "&format=json&%E2%80%8B&api_key=<api key>");
                 } catch (MalformedURLException ex) {
-                    new Error("There was a problem collecting forecasts");
+                    Error err = new Error();
+                    err.sendError("There was a problem collecting forecasts");
                 }
             }
             connection = (HttpURLConnection) url.openConnection();
@@ -67,7 +70,8 @@ public class ForecastAPI {
             connection.disconnect();
             return response;
         } catch (IOException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
@@ -89,7 +93,8 @@ public class ForecastAPI {
             }
             return ghiData;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
@@ -103,7 +108,8 @@ public class ForecastAPI {
             }
             return ghi90Data;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
@@ -117,7 +123,8 @@ public class ForecastAPI {
             }
             return ghi10Data;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
@@ -163,13 +170,15 @@ public class ForecastAPI {
                     solarRadiation[i][1] = lTime.toString();
                     solarRadiation[i][2] = lTime2.toString();
                 } catch (JSONException ex) {
-                    new Error("There was a problem collecting forecasts");
+                    Error err = new Error();
+                    err.sendError("There was a problem collecting forecasts");
                     return null;
                 }
             }
             return solarRadiation;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
@@ -283,7 +292,8 @@ public class ForecastAPI {
             }
             return cloudData;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
@@ -297,7 +307,8 @@ public class ForecastAPI {
             }
             return zenithData;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
@@ -311,7 +322,8 @@ public class ForecastAPI {
             }
             return azimuthData;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
@@ -325,7 +337,8 @@ public class ForecastAPI {
             }
             return tempData;
         } catch (JSONException ex) {
-            new Error("There was a problem collecting forecasts");
+            Error err = new Error();
+            err.sendError("There was a problem collecting forecasts");
             return null;
         }
     }
