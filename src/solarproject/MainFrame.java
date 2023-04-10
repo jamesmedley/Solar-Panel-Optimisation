@@ -679,7 +679,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
                 automate.setSelected(false);
             }
         } catch (JSONException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
         }
     }
 
@@ -693,7 +694,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
             longitude.setText(Double.toString(jo.getDouble("longitude")));
             latitude.setText(Double.toString(jo.getDouble("latitude")));
         } catch (JSONException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
         }
     }
 
@@ -744,7 +746,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
             jLabel11.setText(Integer.toString(css.GETPowerInv()) + " W");
             jLabel12.setText(css.GETGridPower() + " W");
         } catch (IOException | JSONException ex) {
-            new Error("There was a problem updating live values.");
+            Error err = new Error();
+            err.sendError("There was a problem updating live values.");
         }
     }
 
@@ -775,7 +778,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
             jPanel4.setLayout(new BoxLayout(jPanel4, BoxLayout.PAGE_AXIS));
             jPanel4.add(octopus);
         } catch (ParseException ex) {
-            new Error("There was a problem creating graphs.");
+            Error err = new Error();
+            err.sendError("There was a problem creating graphs.");
         }
     }
 
@@ -876,7 +880,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
                     jLabel11.setText(Integer.toString(css.GETPowerInv()) + " W");
                     jLabel12.setText(css.GETGridPower() + " W");
                 } catch (IOException | JSONException ex) {
-                    new Error("There was a problem updating live values.");
+                    Error err = new Error();
+                    err.sendError("There was a problem updating live values.");
                 }
             }
         };
@@ -888,7 +893,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
             URI uri = new URI("https://epsg.io/4326");
             java.awt.Desktop.getDesktop().browse(uri.normalize());
         } catch (URISyntaxException | IOException ex) {
-            new Error("There was a problem please try again.");
+            Error err = new Error();
+            err.sendError("There was a problem please try again.");
         }
     }
 
@@ -897,13 +903,15 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
             URI uri = new URI("https://epsg.io/4326");
             java.awt.Desktop.getDesktop().browse(uri.normalize());
         } catch (URISyntaxException | IOException ex) {
-            new Error("There was a problem please try again.");
+            Error err = new Error();
+            err.sendError("There was a problem please try again.");
         }
     }
 
     private void saveChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {
         if ((Integer.parseInt(longitude.getText()) > 180) | (Integer.parseInt(longitude.getText()) < -180) | (Integer.parseInt(latitude.getText()) < -90) | (Integer.parseInt(latitude.getText()) > 90)) { //code to verify that inputted location values are within the correct range
-            new Error("Longitude must be in range [-180 to 180] and latitude must be in range [-90 to 90]");
+            Error err = new Error();
+            err.sendError("Longitude must be in range [-180 to 180] and latitude must be in range [-90 to 90]");
             return;
         }
         try {
@@ -919,7 +927,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
             f.clear();
             f.write(jo.toString());
         } catch (JSONException ex) {
-            new Error("There was a problem reading data please try again.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data please try again.");
         }
     }
 
@@ -950,7 +959,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
     private void saveChangesActionPerformed(java.awt.event.ActionEvent evt) {
         BatteryGivEnergyAPI battery = new BatteryGivEnergyAPI();
         if (smartCharge.isSelected() & ("".equals(chargeStart.getText()) | "".equals(chargeStop.getText()) | "".equals(chargeUpTo.getText()) | "".equals(cutoff.getText()))) {
-            new Error("Some Items in Independent Features have no values");
+            Error err = new Error();
+            err.sendError("Some Items in Independent Features have no values");
             return;
         }
         if (mode1Radio.isSelected()) {
@@ -962,7 +972,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
         if (mode3Radio.isSelected()) {
             battery.modeChange(3);
             if ((validateDateFormat(mode3start1.getText()) && validateDateFormat(mode3stop1.getText())) == false) {
-                new Error("Inputted times must be of HHmm format. Try again.");
+                Error err = new Error();
+                err.sendError("Inputted times must be of HHmm format. Try again.");
                 return;
             }
             battery.discharge(Integer.parseInt(mode3start1.getText()), Integer.parseInt(mode3stop1.getText()), 4, true);
@@ -970,7 +981,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
         if (mode4Radio.isSelected()) {
             battery.modeChange(4);
             if ((validateDateFormat(mode4start1.getText()) && validateDateFormat(mode4stop1.getText())) == false) {
-                new Error("Inputted times must be of HHmm format. Try again.");
+                Error err = new Error();
+                err.sendError("Inputted times must be of HHmm format. Try again.");
                 return;
             }
             battery.discharge(Integer.parseInt(mode4start1.getText()), Integer.parseInt(mode4stop1.getText()), 4, true);
@@ -1036,7 +1048,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
             jPanel4.setLayout(new BoxLayout(jPanel4, BoxLayout.PAGE_AXIS));
             jPanel4.add(octopus);
         } catch (Exception ex) {
-            new Error("There was a problem finding data for this date.");
+            Error err = new Error();
+            err.sendError("There was a problem finding data for this date.");
         }
     }
 
@@ -1069,7 +1082,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
         try {
             drawPowerGraph();
         } catch (Exception ex) {
-            new Error("There was a problem finding data for this date.");
+            Error err = new Error();
+            err.sendError("There was a problem finding data for this date.");
         }
     }
 
@@ -1113,7 +1127,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
             jPanel2.repaint();
             jPanel2.revalidate();
         } catch (ParseException ex) {
-            new Error("There was a problem displaying the graph.");
+            Error err = new Error();
+            err.sendError("There was a problem displaying the graph.");
         }
     }
 
@@ -1137,7 +1152,8 @@ public class MainFrame extends javax.swing.JFrame implements Runnable {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            new Error("Error loading program, please restart program");
+            Error err = new Error();
+            err.sendError("Error loading program, please restart program");
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
 

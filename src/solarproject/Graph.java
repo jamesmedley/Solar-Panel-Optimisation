@@ -186,7 +186,8 @@ public class Graph {
                 Date date = formatter.parse(dateStr);
                 dateArr[i] = date;
             } catch (ParseException ex) {
-                new Error("There was a problem creating graphs.");
+                Error err = new Error();
+                err.sendError("There was a problem creating graphs.");
             }
         }
         return dateArr;
@@ -206,7 +207,8 @@ public class Graph {
                 dateArr[i] = date;
                 ldt = ldt.plusMinutes(30);
             } catch (ParseException ex) {
-                new Error("There was a problem creating graphs.");
+                Error err = new Error();
+                err.sendError("There was a problem creating graphs.");
                 return null;
             }
         }

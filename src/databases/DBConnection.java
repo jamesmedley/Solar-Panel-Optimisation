@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import solarproject.Error;
 
 public class DBConnection {
 
@@ -20,7 +21,8 @@ public class DBConnection {
             System.out.println(dbCreds.getDBName()+" "+ dbCreds.getUsername()+" "+ dbCreds.getPassword());
             dbCreds.setConnnection(DriverManager.getConnection(<db> + dbCreds.getDBName(), dbCreds.getUsername(), dbCreds.getPassword()));
         } catch (Exception e) {
-            new Error("Could not connect to database: " + e);
+            Error err = new Error();
+            err.sendError("Could not connect to database: " + e);
         }
     }
 
@@ -28,7 +30,8 @@ public class DBConnection {
         try {
             dbCreds.getConnnection().close();
         } catch (SQLException ex) {
-            new Error("Database Error");
+            Error err = new Error();
+            err.sendError("Database Error");
         }
     }
 
@@ -42,7 +45,8 @@ public class DBConnection {
             ps.executeUpdate();
             disconnect(); //closes the connection to ensure that there is never more than one connection to the database
         } catch (SQLException ex) {
-            new Error("Database Error");
+            Error err = new Error();
+            err.sendError("Database Error");
         }
     }
 
@@ -59,7 +63,8 @@ public class DBConnection {
             disconnect(); //Removes chance that error could occur if the connection happened to be closed
             return results;
         } catch (SQLException ex) {
-            new Error("Database Error");
+            Error err = new Error();
+            err.sendError("Database Error");
             return null;
         }
     }

@@ -6,6 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import solarproject.DateStrings;
 import solarproject.Dictionary;
+import solarproject.Error;
 
 public class ChartsGivEnergyAPI extends GivEnergyAPI {
 
@@ -36,7 +37,8 @@ public class ChartsGivEnergyAPI extends GivEnergyAPI {
             response = new JSONObject(data); //turns a string representation of JSON into a JSONObject
             return response;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
             return null;
         }
     }
@@ -51,7 +53,8 @@ public class ChartsGivEnergyAPI extends GivEnergyAPI {
                 try {
                     chartData[j][i] = chartJO.getJSONArray("data").getJSONObject(i).getDouble(names[j]); //fetches the correct value of data from the API response from chartJO using the data keys stored in names
                 } catch (JSONException ex) {
-                    new Error("There was a problem reading data.");
+                    Error err = new Error();
+                    err.sendError("There was a problem reading data.");
                 }
             }
         }
@@ -70,7 +73,8 @@ public class ChartsGivEnergyAPI extends GivEnergyAPI {
             }
             return chartData;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
             return null;
         }
     }
@@ -85,7 +89,8 @@ public class ChartsGivEnergyAPI extends GivEnergyAPI {
                 try {
                     chartData[j][i] = chartJO.getJSONArray("data").getJSONObject(i).getDouble(names[j]); //fetches the correct value of data from the API response from chartJO using the data keys stored in names
                 } catch (JSONException ex) {
-                    new Error("There was a problem reading data.");
+                    Error err = new Error();
+                    err.sendError("There was a problem reading data.");
                 }
             }
         }
@@ -114,7 +119,8 @@ public class ChartsGivEnergyAPI extends GivEnergyAPI {
             dict.add("batpoweractual", Arrays.stream(batPowerActualList.toArray()).mapToDouble(num -> Double.parseDouble(num.toString())).toArray());
             return dict;
         } catch (JSONException ex) {
-            new Error("There was a problem reading data.");
+            Error err = new Error();
+            err.sendError("There was a problem reading data.");
             return null;
         }
     }
